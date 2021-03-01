@@ -1,0 +1,261 @@
+@import url(https://fonts.googleapis.com/css2?family=Rubik:wght@300&family=Signika:wght@500&display=swap);
+.header {
+  width: 100vw;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Signika", sans-serif;
+  position: relative;
+}
+.header img {
+  max-width: 300px;
+  margin-top: 5px;
+}
+.header #burger-menu {
+  display: none;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  z-index: 40;
+  transition: all 400ms ease-in-out;
+}
+.header #burger-menu > div {
+  position: absolute;
+  left: 0;
+  width: 80%;
+  height: 6px;
+  background-color: black;
+  transition: background-color 400ms ease-out;
+}
+.header #burger-menu > div::before, .header #burger-menu > div::after {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background-color: black;
+  transition: background-color 400ms ease-out;
+}
+.header #burger-menu > div::after {
+  top: 15px;
+}
+.header #toggler {
+  position: absolute;
+  opacity: 0;
+  top: 50%;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  z-index: 42;
+  cursor: pointer;
+}
+.header #toggler:checked {
+  top: 120px;
+}
+.header #toggler:checked ~ .menu-main-menu-container {
+  opacity: 1;
+  margin-bottom: 0rem;
+  z-index: 2;
+  max-height: 100vh;
+}
+.header #toggler:checked ~ .menu-main-menu-container .links {
+  opacity: 1;
+}
+.header #toggler:checked ~ #burger-menu {
+  transform: rotate(135deg);
+  top: 120px;
+  z-index: 3;
+}
+.header #toggler:checked ~ #burger-menu div {
+  background-color: white;
+}
+.header #toggler:checked ~ #burger-menu div:before {
+  opacity: 0;
+  background-color: white;
+}
+.header #toggler:checked ~ #burger-menu div:after {
+  transform: rotate(90deg);
+  top: 0;
+  background-color: white;
+}
+.header .menu-main-menu-container {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: #242424;
+  transition: all 400ms ease-in-out, opacity 400ms ease-in-out 200ms;
+}
+.header .menu-main-menu-container ul {
+  min-width: 60vw;
+  margin: 0.6rem auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+.header .menu-main-menu-container ul li {
+  margin: 0 2rem;
+  text-align: center;
+}
+.header .menu-main-menu-container ul li a {
+  color: white;
+  text-decoration: none;
+}
+.header .menu-main-menu-container ul .current-menu-item {
+  position: relative;
+}
+.header .menu-main-menu-container ul .current-menu-item::after {
+  content: "";
+  position: absolute;
+  bottom: -0.6rem;
+  left: -15px;
+  width: calc(100% + 30px);
+  height: 5px;
+  background-color: #689968;
+}
+
+@media screen and (max-width: 800px) {
+  .header #burger-menu {
+    display: flex;
+    cursor: pointer;
+  }
+  .header .menu-main-menu-container {
+    position: relative;
+    opacity: 0;
+    max-height: 0;
+    z-index: 20;
+    margin-bottom: 0;
+  }
+  .header .menu-main-menu-container ul {
+    width: 100vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .header .menu-main-menu-container ul li {
+    margin: 1rem 0;
+  }
+  .header .menu-main-menu-container ul .current-menu-item {
+    text-decoration: underline;
+    -webkit-text-decoration-color: white;
+            text-decoration-color: white;
+  }
+  .header .menu-main-menu-container ul .current-menu-item::after {
+    display: none;
+  }
+}
+.container {
+  width: 65vw;
+  min-width: 800px;
+  margin: 2rem auto 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .title {
+  display: inline;
+  padding: 0.5rem;
+  position: relative;
+}
+.container .title::before, .container .title::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: -2rem;
+  width: 2rem;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-image: url("/wp-content/themes/maca/images/TitleImgLeft.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.container .title::after {
+  left: 100%;
+  background-image: url("/wp-content/themes/maca/images/TitleImgRight.png");
+  justify-content: flex-start;
+}
+
+.news-content {
+  width: 100%;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  background-color: #e9e6dd;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.4);
+  display: grid;
+  grid-template-areas: "A A B B" "A A C C" "A A C C";
+  gap: 1rem;
+}
+.news-content .post-image {
+  grid-area: A;
+}
+.news-content .post-image img {
+  width: 100%;
+}
+.news-content .post-title {
+  grid-area: B;
+}
+.news-content .post-title h2 {
+  margin: 0;
+}
+.news-content .post-excerpt {
+  grid-area: C;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    width: 85vw;
+    min-width: 0;
+    padding: 0;
+  }
+
+  .news-content {
+    margin-top: 2rem;
+    width: 80%;
+    display: grid;
+    grid-template-areas: "B" "A" "C";
+    flex-direction: column;
+  }
+  .news-content .post-title {
+    text-align: center;
+  }
+}
+.footer {
+  font-size: 0.9rem;
+  padding: 1rem 2rem;
+  background-color: #353535;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  margin-top: 2rem;
+}
+.footer p {
+  margin: 0;
+}
+.footer p a {
+  color: white;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  background-color: whitesmoke;
+  overflow-x: hidden;
+  font-family: "Rubik", sans-serif;
+}
+body a {
+  color: black;
+}
