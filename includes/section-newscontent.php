@@ -13,7 +13,7 @@
         </div>
         <div class="post-excerpt">
             <?php the_excerpt(); ?>
-            <a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>">Read More</a>
+            <a class="btn-link" href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>">Read More</a>
         </div>
     </div>
 
