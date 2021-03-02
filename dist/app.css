@@ -253,32 +253,41 @@
 .contact {
   margin-top: 2rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   grid-template-areas: "MSG" "FORM";
+  gap: 2rem;
 }
 .contact > div:first-child {
   grid-area: FORM;
   display: flex;
-  width: 40%;
+  width: 100%;
 }
-.contact > div:first-child form > label {
+.contact > div:first-child form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 2rem;
+}
+.contact > div:first-child form label {
   margin: 0.75rem 0 0.25rem;
 }
-.contact > div:first-child form > * {
+.contact > div:first-child form div > * {
   display: block;
+  margin: 0 auto 1rem;
+}
+.contact > div:first-child form label {
+  margin-left: 2rem;
 }
 .contact > div:first-child form input, .contact > div:first-child form textarea {
   border: none;
   border-radius: 0.5rem;
   height: 2rem;
-  width: 35ch;
-}
-.contact > div:first-child form input, .contact > div:first-child form textarea {
+  min-width: 90%;
   box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.4);
 }
 .contact > div:first-child form textarea {
   resize: none;
-  height: 6rem;
+  height: 10rem;
 }
 .contact > div:first-child form button {
   background-color: #689968;
@@ -287,9 +296,10 @@
   border: none;
   border-radius: 0.5rem;
   padding: 0.5rem 0.75rem;
+  cursor: pointer;
 }
 .contact > div:last-child {
-  width: 55%;
+  max-width: 45%;
   display: flex;
   align-items: flex-start;
   margin-top: 2rem;
@@ -319,10 +329,40 @@
   .contact {
     margin: 0;
     display: grid;
+    gap: 0;
   }
   .contact > div:first-child, .contact > div:last-child {
-    width: 100%;
+    max-width: 100%;
+    margin: 2rem 0;
     justify-content: center;
+  }
+  .contact > div:first-child {
+    margin: 0;
+  }
+}
+@media screen and (min-width: 2000px) {
+  body {
+    font-size: 2rem;
+  }
+
+  .contact {
+    display: grid;
+  }
+  .contact > div {
+    margin: 0 auto;
+  }
+  .contact > div:first-child form {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .contact > div:first-child form > div {
+    width: 40%;
+  }
+  .contact > div:first-child form input {
+    height: 2.5rem;
+  }
+  .contact > div:first-child form button {
+    width: 20%;
   }
 }
 .footer {
