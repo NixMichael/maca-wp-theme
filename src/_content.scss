@@ -7,6 +7,13 @@
     flex-direction: column;
     align-items: center;
 
+    .highlight-area {
+        background-color: $highlight-area;
+        padding: 1rem 3rem;
+        border-radius: 0.6rem;
+        text-align: center;
+    }
+
     img {
         max-width: 100%;
         margin: 0 auto;
@@ -40,6 +47,10 @@
         }
     }
 
+    .event-content {
+        margin-bottom: 4rem;
+    }
+
     .btn-link {
         background: $btn-color;
         color: white;
@@ -60,6 +71,13 @@
     grid-template-areas: 'A A B B' 'A A C C' 'A A C C';
     grid-column-gap: 1rem;
 
+    &:nth-child(2n) {
+        grid-template-areas: 'B B A A' 'C C A A' 'C C A A';
+        .post-excerpt a {
+            float: left;
+        }
+    }
+
     .post-image {
         grid-area: A;
         img {
@@ -69,8 +87,12 @@
 
     .post-title {
         grid-area: B;
-        h2 {
+        h2, p {
             margin: 0;
+        }
+        p {
+            font-size: 0.8rem;
+            margin-top: 5px;
         }
     }
 
@@ -80,6 +102,58 @@
         a {
             float: right;
         }
+    }
+}
+
+.contact {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    grid-template-areas: 'MSG' 'FORM';
+    & > div:first-child {
+        grid-area: FORM;
+        display: flex;
+        width: 40%;
+        form {
+            & > label {
+                margin: 0.75rem 0 0.25rem;
+            }
+            & > * {
+                display: block;
+            }
+
+            input, textarea {
+                border: none;
+                border-radius: 0.5rem;
+                height: 2rem;
+                width: 35ch;
+            }
+
+            input, textarea {
+                box-shadow: 3px 3px 4px 2px $shadow-color;
+            }
+
+            textarea {
+                resize: none;
+                height: 6rem;
+            }
+
+            button {
+                background-color: $highlight-color;
+                color: white;
+                margin-top: 1rem;
+                border: none;
+                border-radius: 0.5rem;
+                padding: 0.5rem 0.75rem;
+            }
+        }
+    }
+    & > div:last-child {
+        width: 55%;
+        display: flex;
+        align-items: flex-start;
+        margin-top: 2rem;
+        grid-area: MSG;
     }
 }
 
@@ -101,6 +175,16 @@
 
         .post-title {
             text-align: center;
+        }
+    }
+
+    .contact {
+        margin: 0;
+        display: grid;
+
+        & > div:first-child, & > div:last-child {
+            width: 100%;
+            justify-content: center;
         }
     }
 }

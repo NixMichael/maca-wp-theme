@@ -10,6 +10,7 @@
         </div>
         <div class="post-title">
             <h2><?php the_title(); ?></h2>
+            <p><?php the_time('l d-m-Y'); ?></p>
         </div>
         <div class="post-excerpt">
             <?php the_excerpt(); ?>

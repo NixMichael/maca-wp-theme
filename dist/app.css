@@ -164,6 +164,12 @@
   flex-direction: column;
   align-items: center;
 }
+.container .highlight-area {
+  background-color: rgba(110, 145, 129, 0.3);
+  padding: 1rem 3rem;
+  border-radius: 0.6rem;
+  text-align: center;
+}
 .container img {
   max-width: 100%;
   margin: 0 auto;
@@ -193,6 +199,9 @@
   background-image: url("/wp-content/themes/maca/images/TitleImgRight.png");
   justify-content: flex-start;
 }
+.container .event-content {
+  margin-bottom: 4rem;
+}
 .container .btn-link {
   background: #5b965b;
   color: white;
@@ -212,6 +221,12 @@
   grid-template-areas: "A A B B" "A A C C" "A A C C";
   grid-column-gap: 1rem;
 }
+.news-content:nth-child(2n) {
+  grid-template-areas: "B B A A" "C C A A" "C C A A";
+}
+.news-content:nth-child(2n) .post-excerpt a {
+  float: left;
+}
 .news-content .post-image {
   grid-area: A;
 }
@@ -221,14 +236,64 @@
 .news-content .post-title {
   grid-area: B;
 }
-.news-content .post-title h2 {
+.news-content .post-title h2, .news-content .post-title p {
   margin: 0;
+}
+.news-content .post-title p {
+  font-size: 0.8rem;
+  margin-top: 5px;
 }
 .news-content .post-excerpt {
   grid-area: C;
 }
 .news-content .post-excerpt a {
   float: right;
+}
+
+.contact {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+  grid-template-areas: "MSG" "FORM";
+}
+.contact > div:first-child {
+  grid-area: FORM;
+  display: flex;
+  width: 40%;
+}
+.contact > div:first-child form > label {
+  margin: 0.75rem 0 0.25rem;
+}
+.contact > div:first-child form > * {
+  display: block;
+}
+.contact > div:first-child form input, .contact > div:first-child form textarea {
+  border: none;
+  border-radius: 0.5rem;
+  height: 2rem;
+  width: 35ch;
+}
+.contact > div:first-child form input, .contact > div:first-child form textarea {
+  box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.4);
+}
+.contact > div:first-child form textarea {
+  resize: none;
+  height: 6rem;
+}
+.contact > div:first-child form button {
+  background-color: #689968;
+  color: white;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+}
+.contact > div:last-child {
+  width: 55%;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 2rem;
+  grid-area: MSG;
 }
 
 @media screen and (max-width: 800px) {
@@ -249,6 +314,15 @@
   }
   .news-content .post-title {
     text-align: center;
+  }
+
+  .contact {
+    margin: 0;
+    display: grid;
+  }
+  .contact > div:first-child, .contact > div:last-child {
+    width: 100%;
+    justify-content: center;
   }
 }
 .footer {
