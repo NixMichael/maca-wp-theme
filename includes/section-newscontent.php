@@ -5,12 +5,12 @@
             <?php if (has_post_thumbnail()): ?>
                 <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
             <?php else: ?>
-                <img src="https://cdn.pixabay.com/photo/2015/08/20/15/03/cow-897533_640.jpg" alt="<?php the_title(); ?>">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/post-images/default-image0<?php echo rand(1, 5); ?>.jpg" alt="<?php the_title(); ?>">
             <?php endif; ?>
         </div>
         <div class="post-title">
             <h2><?php the_title(); ?></h2>
-            <p><?php the_time('l d-m-Y'); ?></p>
+            <p><?php the_time('l jS M Y'); ?></p>
         </div>
         <div class="post-excerpt">
             <?php the_excerpt(); ?>
