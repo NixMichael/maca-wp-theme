@@ -19,4 +19,33 @@ body {
     a {
         color: black;
     }
+
+    :focus {
+        outline: none;
+    }
+
+    .header .menu-main-menu-container ul li {
+        position: relative;
+    }
+
+    .header .menu-main-menu-container ul li :focus::before {
+        content: '';
+        position: absolute;
+        bottom: -0.6rem;
+        left: -15px;
+        width: calc(100% + 30px);
+        height: 5px;
+        background-color: white;
+        z-index: 20;
+        // border-bottom: 4px solid white;
+        // outline: 5px solid $highlight-color;
+        // outline-offset: 3px;
+        // box-shadow: 0 0 0 4px $menu-background, 0 0 0 8px $highlight-color;
+    }
+
+    .container a:focus {
+        color: $highlight-color;
+        text-decoration: none;
+        border-bottom: 2px solid $highlight-color;
+    }
 }

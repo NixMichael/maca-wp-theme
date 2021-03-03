@@ -136,7 +136,7 @@
                     input, textarea {
                         border: none;
                         border-radius: 0.5rem;
-                        height: 3rem;
+                        height: 2.5rem;
                         min-width: 90%;
                         box-shadow: 3px 3px 4px 2px $shadow-color;
                     }
@@ -156,6 +156,12 @@
                 border-radius: 0.5rem;
                 padding: 0.5rem 0.75rem;
                 cursor: pointer;
+            }
+
+            input:focus, textarea:focus, button:focus {
+                // outline: 5px solid $highlight-color;
+                // outline-offset: 3px;
+                box-shadow: 0 0 0 4px $content-background, 0 0 0 8px $highlight-color;
             }
         }
     }

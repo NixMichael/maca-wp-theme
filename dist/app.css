@@ -282,7 +282,7 @@
 .contact > div:first-child form div div input, .contact > div:first-child form div div textarea {
   border: none;
   border-radius: 0.5rem;
-  height: 3rem;
+  height: 2.5rem;
   min-width: 90%;
   box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.4);
 }
@@ -298,6 +298,9 @@
   border-radius: 0.5rem;
   padding: 0.5rem 0.75rem;
   cursor: pointer;
+}
+.contact > div:first-child form input:focus, .contact > div:first-child form textarea:focus, .contact > div:first-child form button:focus {
+  box-shadow: 0 0 0 4px whitesmoke, 0 0 0 8px #689968;
 }
 .contact > div:last-child {
   max-width: 45%;
@@ -394,6 +397,10 @@
 .footer p a {
   color: white;
 }
+.footer p a:focus {
+  text-decoration: none;
+  border-bottom: 4px solid white;
+}
 
 @media screen and (max-width: 800px) {
   .footer {
@@ -415,4 +422,25 @@ body {
 }
 body a {
   color: black;
+}
+body :focus {
+  outline: none;
+}
+body .header .menu-main-menu-container ul li {
+  position: relative;
+}
+body .header .menu-main-menu-container ul li :focus::before {
+  content: "";
+  position: absolute;
+  bottom: -0.6rem;
+  left: -15px;
+  width: calc(100% + 30px);
+  height: 5px;
+  background-color: white;
+  z-index: 20;
+}
+body .container a:focus {
+  color: #689968;
+  text-decoration: none;
+  border-bottom: 2px solid #689968;
 }
