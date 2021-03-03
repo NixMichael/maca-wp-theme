@@ -7,13 +7,6 @@
     flex-direction: column;
     align-items: center;
 
-    .highlight-area {
-        background-color: $highlight-area;
-        padding: 1rem 3rem;
-        border-radius: 0.6rem;
-        text-align: center;
-    }
-
     img {
         width: 70%;
         max-width: 1000px;
@@ -112,24 +105,15 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-
-    // & > div > div {
-    //     background: rgba($highlight-color, 0.8);
-    //     border-radius: 0.5rem;
-    //     padding: 0.5rem;
-    //     a {
-    //         color: white;
-    //         text-decoration: none;
-    //     }
-    // }
 }
 
 .contact {
     margin-top: 2rem;
+    min-width: 800px;
     display: flex;
     justify-content: center;
     grid-template-areas: 'MSG' 'FORM';
-    gap: 2rem;
+    gap: 4rem;
     & > div:first-child {
         grid-area: FORM;
         display: flex;
@@ -139,31 +123,29 @@
             flex-direction: column;
             width: 100%;
             gap: 2rem;
-            label {
-                margin: 0.75rem 0 0.25rem;
-            }
+
             div {
                 & > * {
-                    display: block;
-                    margin: 0 auto 1rem;
+                    margin-bottom: 1rem;
                 }
-            }
 
-            label {
-                margin-left: 2rem;
-            }
+                div {
+                    display: flex;
+                    flex-direction: column;
 
-            input, textarea {
-                border: none;
-                border-radius: 0.5rem;
-                height: 2rem;
-                min-width: 90%;
-                box-shadow: 3px 3px 4px 2px $shadow-color;
-            }
-
-            textarea {
-                resize: none;
-                height: 10rem;
+                    input, textarea {
+                        border: none;
+                        border-radius: 0.5rem;
+                        height: 3rem;
+                        min-width: 90%;
+                        box-shadow: 3px 3px 4px 2px $shadow-color;
+                    }
+        
+                    textarea {
+                        resize: none;
+                        height: 10rem;
+                    }
+                }
             }
 
             button {
@@ -180,9 +162,42 @@
     & > div:last-child {
         max-width: 45%;
         display: flex;
-        align-items: flex-start;
-        margin-top: 2rem;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-top: 0;
         grid-area: MSG;
+
+        .highlight-area {
+            background-color: $highlight-area;
+            padding: 1rem 3rem;
+            border-top-left-radius: 0.6rem;
+            border-top-right-radius: 0.6rem;
+            text-align: center;
+            position: relative;
+            // &::after {
+            //     content: '';
+            //     position: absolute;
+            //     top: calc(100% - 0.6rem);
+            //     left: 0;
+            //     width: 100%;
+            //     height: 140%;
+            //     background: url('/wp-content/themes/maca/images/Manchester_Outreach_04b.png');
+            //     background-position-y: -20px;
+            //     background-size: cover;
+            //     background-repeat: no-repeat;
+            //     border-bottom-left-radius: 0.6rem;
+            //     border-bottom-right-radius: 0.6rem;
+            // }
+        }
+        .contact-image {
+            border-bottom-left-radius: 0.6rem;
+            border-bottom-right-radius: 0.6rem;
+            // height: 50%;
+            overflow: hidden;
+            img {
+                width: 100%;
+            }
+        }
     }
 }
 
@@ -217,6 +232,7 @@
         margin: 0;
         display: grid;
         gap: 0;
+        min-width: 100px;
 
         & > div:first-child, & > div:last-child {
             max-width: 100%;
@@ -228,6 +244,11 @@
             margin: 0;
         }
 
+        & > div:last-child .highlight-area::after {
+            height: 300%;
+            top: 45vh;
+        }
+
     }
 }
 
@@ -237,29 +258,7 @@
     }
 
     .contact {
-        display: grid;
-
-        & > div {
-            margin: 0 auto;
-        }
-
-        & > div:first-child {
-            form {
-                flex-direction: row;
-                justify-content: center;
-
-                & > div {
-                    width: 40%;
-                }
-
-                input {
-                    height: 2.5rem;
-                }
-
-                button {
-                    width: 20%;
-                }
-            }
-        }
+        margin-top: 5rem;
+        min-width: 1800px;
     }
 }

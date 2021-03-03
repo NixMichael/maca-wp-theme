@@ -11,14 +11,20 @@ get_header();
         <div>
             <form action="/" method="post">
                 <div>
-                    <label for="name">Name</label>
-                    <input type="text" id="name"/>
-                    <label for="email">Your email</label>
-                    <input type="text" id="email"/>
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="text" id="name"/>
+                    </div>
+                    <div>
+                        <label for="email">Your email</label>
+                        <input type="text" id="email"/>
+                    </div>
                 </div>
                 <div>
-                    <label for="message">Message</label>
-                    <textarea id="message"></textarea>
+                    <div>
+                        <label for="message">Message</label>
+                        <textarea id="message"></textarea>
+                    </div>
                     <button type="submit">Send</button>
                 </div>
             </form>
@@ -26,6 +32,9 @@ get_header();
         <div>
             <div class="highlight-area">
                 <?php the_content(); ?>
+            </div>
+            <div class="contact-image">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/Manchester_Outreach_04b.png" alt="Outreach team in Manchester">
             </div>
         </div>
     </div>

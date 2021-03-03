@@ -164,12 +164,6 @@
   flex-direction: column;
   align-items: center;
 }
-.container .highlight-area {
-  background-color: rgba(110, 145, 129, 0.3);
-  padding: 1rem 3rem;
-  border-radius: 0.6rem;
-  text-align: center;
-}
 .container img {
   width: 70%;
   max-width: 1000px;
@@ -261,10 +255,11 @@
 
 .contact {
   margin-top: 2rem;
+  min-width: 800px;
   display: flex;
   justify-content: center;
   grid-template-areas: "MSG" "FORM";
-  gap: 2rem;
+  gap: 4rem;
 }
 .contact > div:first-child {
   grid-area: FORM;
@@ -277,24 +272,21 @@
   width: 100%;
   gap: 2rem;
 }
-.contact > div:first-child form label {
-  margin: 0.75rem 0 0.25rem;
-}
 .contact > div:first-child form div > * {
-  display: block;
-  margin: 0 auto 1rem;
+  margin-bottom: 1rem;
 }
-.contact > div:first-child form label {
-  margin-left: 2rem;
+.contact > div:first-child form div div {
+  display: flex;
+  flex-direction: column;
 }
-.contact > div:first-child form input, .contact > div:first-child form textarea {
+.contact > div:first-child form div div input, .contact > div:first-child form div div textarea {
   border: none;
   border-radius: 0.5rem;
-  height: 2rem;
+  height: 3rem;
   min-width: 90%;
   box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.4);
 }
-.contact > div:first-child form textarea {
+.contact > div:first-child form div div textarea {
   resize: none;
   height: 10rem;
 }
@@ -310,9 +302,26 @@
 .contact > div:last-child {
   max-width: 45%;
   display: flex;
-  align-items: flex-start;
-  margin-top: 2rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 0;
   grid-area: MSG;
+}
+.contact > div:last-child .highlight-area {
+  background-color: rgba(110, 145, 129, 0.3);
+  padding: 1rem 3rem;
+  border-top-left-radius: 0.6rem;
+  border-top-right-radius: 0.6rem;
+  text-align: center;
+  position: relative;
+}
+.contact > div:last-child .contact-image {
+  border-bottom-left-radius: 0.6rem;
+  border-bottom-right-radius: 0.6rem;
+  overflow: hidden;
+}
+.contact > div:last-child .contact-image img {
+  width: 100%;
 }
 
 @media screen and (max-width: 800px) {
@@ -344,6 +353,7 @@
     margin: 0;
     display: grid;
     gap: 0;
+    min-width: 100px;
   }
   .contact > div:first-child, .contact > div:last-child {
     max-width: 100%;
@@ -353,6 +363,10 @@
   .contact > div:first-child {
     margin: 0;
   }
+  .contact > div:last-child .highlight-area::after {
+    height: 300%;
+    top: 45vh;
+  }
 }
 @media screen and (min-width: 2000px) {
   body {
@@ -360,23 +374,8 @@
   }
 
   .contact {
-    display: grid;
-  }
-  .contact > div {
-    margin: 0 auto;
-  }
-  .contact > div:first-child form {
-    flex-direction: row;
-    justify-content: center;
-  }
-  .contact > div:first-child form > div {
-    width: 40%;
-  }
-  .contact > div:first-child form input {
-    height: 2.5rem;
-  }
-  .contact > div:first-child form button {
-    width: 20%;
+    margin-top: 5rem;
+    min-width: 1800px;
   }
 }
 .footer {
